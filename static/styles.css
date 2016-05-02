@@ -1,0 +1,112 @@
+.body .row {
+    padding-top: 2px;
+    padding-left: 3%;
+}
+
+.row .logo {
+    float: left;
+    padding-top: 2px;
+    margin-right: 5%;
+    font-family: 'Josefin Slab', serif;
+}
+
+.searchbar {
+    padding-left: 0;
+}
+
+.searchbar .custom-search-input {
+    border-bottom: 1px solid #ececec;
+}
+
+.searchbar .btn {
+    background: #ffffff;
+}
+
+.searchbar .btn:active {
+    border:none;
+}
+
+.searchbar .input-lg {
+    border: none;
+}
+
+.article {
+    padding: 22px 0px 12px;
+    border-bottom: 1px solid #ececec;
+    margin-left:21.5%;
+}
+
+.article-block {
+    padding-left: 0;
+}
+
+.article-title {
+    font-family: LyonText,Georgia,serif;
+}
+
+.article-title .title-link {
+    color: #111111;
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: calc(100% - (50px + 15px));
+    font-weight: 400;
+    font-size: 1.3125rem;
+    line-height: 1.875rem;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.article-title .title-link:hover {
+    color: #1e90ff;
+}
+
+.title-meta {
+    margin-bottom: .1em;
+    font-family: LyonText,Georgia,serif;
+    color: #7a7a7a;
+
+}
+
+.host-link {
+    color: #7a7a7a;
+    text-decoration: none;
+}
+
+.host-link:hover {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.article-preview {
+    padding-bottom: 10px;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    max-width: 36.25rem;
+    font-family: LyonText,Georgia,serif;
+}
+
+.item-date-footer {
+    color: #7a7a7a;
+    font-size: .8em;
+}
+
+.article-image {
+    position: absolute;
+    top: 25px;
+    right: 15%;
+    width: 150px;
+    height: 120px;
+    background-size: cover,auto;
+    background-position: 50% 50%,50% 50%;
+    opacity: .75;
+    border: 1px solid;
+    -webkit-transition: opacity 250ms ease 0s;
+    -moz-transition: opacity 250ms ease 0s;
+    transition: opacity 250ms ease 0s;
+}
+
+.article-image image {
+    height: 120px;
+    width: 150px;
+}

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
-import ArticlesList from './components/ArticlesList';
+import SearchBox from './components/SearchBox';
 
 class App extends Component {
 
   render() {
     return(
       <div>
-        <h1>Hello asd</h1>
-        <p>Testen</p>
-        <ArticlesList></ArticlesList>
+        <SearchBox></SearchBox>
       </div>
     );
   }
