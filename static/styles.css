@@ -123,4 +123,15 @@ body {
 
 .pager-links li {
   display: inline;
+  color: #7a7a7a;
+}
+.pager-links li:hover {
+  color: #1e90ff;
+}
+
+.pager-prev {
+  float: left;
+}
+.pager-next {
+  float: right;
 }
