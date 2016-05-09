@@ -8,7 +8,7 @@ class ArticlesList extends Component {
     var articles = this.props.articles;
 
     return (
-        <div>
+        <div >
 
           { articles.map( function(article) {
             return (<Article

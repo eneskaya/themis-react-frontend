@@ -5,7 +5,6 @@ body {
 .row .logo {
     float: left;
     padding-top: 2px;
-    margin-right: 5%;
     font-family: 'Josefin Slab', serif;
 }
 
@@ -30,9 +29,8 @@ body {
 }
 
 .article {
-    padding: 22px 0px 12px;
+    padding: 8px 0 22px;
     border-bottom: 1px solid #ececec;
-    margin-left:21.5%;
 }
 
 .article-block {

@@ -12,7 +12,6 @@ export default StyleSheet.create({
     "row logo": {
         "float": "left",
         "paddingTop": 2,
-        "marginRight": "5%",
         "fontFamily": "'Josefin Slab', serif"
     },
     "searchbar": {
@@ -31,12 +30,11 @@ export default StyleSheet.create({
         "border": "none"
     },
     "article": {
-        "paddingTop": 22,
+        "paddingTop": 8,
         "paddingRight": 0,
-        "paddingBottom": 12,
+        "paddingBottom": 22,
         "paddingLeft": 0,
-        "borderBottom": "1px solid #ececec",
-        "marginLeft": "21.5%"
+        "borderBottom": "1px solid #ececec"
     },
     "article-block": {
         "paddingLeft": 0
@@ -64,16 +62,16 @@ export default StyleSheet.create({
         "fontFamily": "LyonText,Georgia,serif",
         "color": "#7a7a7a"
     },
-    "host":{
-        "padding-left": "0"
-    },  
+    "host": {
+        "paddingLeft": 0
+    },
     "host-link": {
         "color": "#7a7a7a",
         "textDecoration": "none",
         "overflow": "hidden",
-        "max-width": "100%",
-        "white-space": "nowrap",
-        "text-overflow": "ellipsis",
+        "maxWidth": "100%",
+        "whiteSpace": "nowrap",
+        "textOverflow": "ellipsis",
         "display": "block"
     },
     "host-link:hover": {
