@@ -10,8 +10,8 @@ class Article extends Component {
   render() {
 
     return (
-      <div className="article col-md-8 col-md-offset-2">
-                <div className="col-md-8 article-block">
+      <div className="article">
+                <div className="article-block">
                     <div className="article-title">
                         <a href={this.props.uri} target="_blank" title="Panderom Gabaled Hidaemd" className="title-link">
                             {this.props.title}
@@ -29,7 +29,7 @@ class Article extends Component {
 
                     </div>
                     <div className="article-preview">
-                        {this.props.content}
+                        {this.props.content} ...
                     </div>
                     <div className="article-item-footer">
                         <span className="item-date-footer">
