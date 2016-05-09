@@ -77,13 +77,13 @@ class App extends Component {
         </ArticlesList>
         <hr />
         <ul className="pager-links">
-          <li>
+          <li className="pager-prev">
             <a
               onClick={this.getPrevArticles.bind(this)}>
               Prev
             </a>
           </li>
-          <li>
+          <li className="pager-next">
             <a
               onClick={this.getNextArticles.bind(this)}>
               Next
