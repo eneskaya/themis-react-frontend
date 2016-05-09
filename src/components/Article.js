@@ -10,10 +10,10 @@ class Article extends Component {
   render() {
 
     return (
-      <div className="article col-md-8 col-md-offset-2">
+      <div className="article col-md-10 col-md-offset-2">
                 <div className="col-md-8 article-block">
                     <div className="article-title">
-                        <a href={this.props.uri} target="_blank" title="Panderom Gabaled Hidaemd" className="title-link">
+                        <a href={this.props.uri} target="_blank" title={this.props.title} className="title-link">
                             {this.props.title}
                         </a>
                     </div>
