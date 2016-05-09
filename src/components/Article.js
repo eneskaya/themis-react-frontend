@@ -12,12 +12,12 @@ class Article extends Component {
                         </a>
                     </div>
                     <div className="title-meta">
-                        <span className="host">
+                        <span className="host col-xs-4">
                             <a href={this.props.uri} target="_blank" className="host-link">
                                 {this.props.uri}
                             </a>
                         </span>
-                        <span className="author">
+                        <span className="author col-xs-8">
                             - {this.props.author}
                         </span>
 

@@ -64,9 +64,17 @@ export default StyleSheet.create({
         "fontFamily": "LyonText,Georgia,serif",
         "color": "#7a7a7a"
     },
+    "host":{
+        "padding-left": "0"
+    },  
     "host-link": {
         "color": "#7a7a7a",
-        "textDecoration": "none"
+        "textDecoration": "none",
+        "overflow": "hidden",
+        "max-width": "100%",
+        "white-space": "nowrap",
+        "text-overflow": "ellipsis",
+        "display": "block"
     },
     "host-link:hover": {
         "color": "#1e90ff",

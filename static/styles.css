@@ -67,9 +67,18 @@ body {
 
 }
 
+.host {
+    padding-left: 0;
+}
+
 .host-link {
     color: #7a7a7a;
     text-decoration: none;
+    overflow: hidden;
+    max-width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
 }
 
 .host-link:hover {
