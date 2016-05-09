@@ -4,7 +4,7 @@ class SearchBox extends Component {
 
   render() {
     return (
-      
+
       <div className="col-md-9 searchbar">
           <div className="custom-search-input">
               <div className="input-group">

@@ -4,29 +4,29 @@ class Article extends Component {
 
   render() {
     return (
-      <div class="article col-md-8 col-md-offset-2">
-                <div class="col-md-8 article-block">
-                    <div class="article-title">
-                        <a href="#" title="Panderom Gabaled Hidaemd" class="title-link">
+      <div className="article col-md-8 col-md-offset-2">
+                <div className="col-md-8 article-block">
+                    <div className="article-title">
+                        <a href="{this.props.uri}" title="Panderom Gabaled Hidaemd" className="title-link">
                             {this.props.title}
                         </a>
                     </div>
-                    <div class="title-meta">
-                        <span class="host">
-                            <a href="#" class="host-link">
-                                {this.props.link}
+                    <div className="title-meta">
+                        <span className="host">
+                            <a href="{this.props.uri}" className="host-link">
+                                {this.props.uri}
                             </a>
                         </span>
-                        <span class="author">
+                        <span className="author">
                             - {this.props.author}
                         </span>
 
                     </div>
-                    <div class="article-preview">
+                    <div className="article-preview">
                         {this.props.content}
                     </div>
-                    <div class="article-item-footer">
-                        <span class="item-date-footer">
+                    <div className="article-item-footer">
+                        <span className="item-date-footer">
                             {this.props.date}
                         </span>
                     </div>
