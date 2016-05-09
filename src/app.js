@@ -72,20 +72,50 @@ class App extends Component {
 
     return(
       <div>
+
+        <div>
+          <ul className="pager-links">
+            <li className="pager-prev">
+              <button
+                type="button"
+                className="btn btn-default"
+                onClick={this.getPrevArticles.bind(this)}>Prev</button>
+
+            </li>
+            <li className="pager-next">
+              <button
+                type="button"
+                className="btn btn-default"
+                onClick={this.getNextArticles.bind(this)}>Next</button>
+
+            </li>
+          </ul>
+          <div className="clearfix"></div>
+        </div>
+
         <ArticlesList
           articles={this.state.currentArticles}>
         </ArticlesList>
 
-        <ul className="pager-links col-xs-offset-2">
-          <li className="pager-prev">
-            <button type="button" class="btn btn-default" onClick={this.getPrevArticles.bind(this)}>Prev</button>
+        <div>
+          <ul className="pager-links">
+            <li className="pager-prev">
+              <button
+                type="button"
+                className="btn btn-default"
+                onClick={this.getPrevArticles.bind(this)}>Prev</button>
 
-          </li>
-          <li className="pager-next">
-            <button type="button" class="btn btn-default">Next</button>
-      
-          </li>
-        </ul>
+            </li>
+            <li className="pager-next">
+              <button
+                type="button"
+                className="btn btn-default"
+                onClick={this.getNextArticles.bind(this)}>Next</button>
+
+            </li>
+          </ul>
+          <div className="clearfix"></div>
+        </div>
       </div>
     );
   }

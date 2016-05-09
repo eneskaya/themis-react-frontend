@@ -7,12 +7,16 @@ const {width, height, scale} = Dimensions.get("window"),
 
 export default StyleSheet.create({
     "body": {
-        "marginTop": 10
+        "marginTop": 20,
+        "marginRight": 0,
+        "marginBottom": 20,
+        "marginLeft": 0,
+        "backgroundColor": "rgb(240, 240, 240)"
     },
     "row logo": {
         "float": "left",
-        "paddingTop": 2,
-        "fontFamily": "'Josefin Slab', serif"
+        "fontFamily": "'Josefin Slab', serif",
+        "fontSize": 36
     },
     "searchbar": {
         "paddingLeft": 0
@@ -30,7 +34,7 @@ export default StyleSheet.create({
         "border": "none"
     },
     "article": {
-        "paddingTop": 8,
+        "paddingTop": 22,
         "paddingRight": 0,
         "paddingBottom": 22,
         "paddingLeft": 0,
@@ -49,8 +53,8 @@ export default StyleSheet.create({
         "overflow": "hidden",
         "maxWidth": "calc(100% - (50px + 15px))",
         "fontWeight": 400,
-        "fontSize": 1.3125,
-        "lineHeight": 1.875,
+        "fontSize": 21,
+        "lineHeight": 28,
         "textDecoration": "none",
         "whiteSpace": "nowrap"
     },
@@ -58,7 +62,7 @@ export default StyleSheet.create({
         "color": "#1e90ff"
     },
     "title-meta": {
-        "marginBottom": 0.1,
+        "marginBottom": 1.8,
         "fontFamily": "LyonText,Georgia,serif",
         "color": "#7a7a7a"
     },
@@ -82,8 +86,13 @@ export default StyleSheet.create({
         "paddingBottom": 10,
         "fontSize": 1,
         "lineHeight": 1.5,
-        "maxWidth": 36.25,
-        "fontFamily": "LyonText,Georgia,serif"
+        "fontFamily": "LyonText,Georgia,serif",
+        "textOverflow": "ellipsis",
+        "color": "#404040",
+        "marginTop": 5,
+        "marginRight": 0,
+        "marginBottom": 5,
+        "marginLeft": 0
     },
     "item-date-footer": {
         "color": "#7a7a7a",
@@ -108,9 +117,30 @@ export default StyleSheet.create({
         "width": 150
     },
     "pager-links": {
-        "listStyle": "none"
+        "listStyle": "none",
+        "paddingTop": 0,
+        "paddingRight": 0,
+        "paddingBottom": 0,
+        "paddingLeft": 0,
+        "marginTop": 20,
+        "marginRight": 0,
+        "marginBottom": 20,
+        "marginLeft": 0
     },
     "pager-links li": {
-        "display": "inline"
+        "display": "inline",
+        "color": "#7a7a7a"
+    },
+    "pager-links li:hover": {
+        "color": "#1e90ff"
+    },
+    "pager-prev": {
+        "float": "left"
+    },
+    "pager-next": {
+        "float": "right"
+    },
+    "container": {
+        "width": 960
     }
 });
