@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import moment from 'moment';
 
 class Article extends Component {
 
+  getDate(date) {
+    return moment(this.props.date).format('D. MMMM, YYYY');
+  }
+
   render() {
+
     return (
       <div className="article col-md-8 col-md-offset-2">
                 <div className="col-md-8 article-block">
@@ -22,10 +28,12 @@ class Article extends Component {
                         </span>
 
                     </div>
-
+                    <div className="article-preview">
+                        {this.props.content}
+                    </div>
                     <div className="article-item-footer">
                         <span className="item-date-footer">
-                            {this.props.date}
+                            {this.getDate()}
                         </span>
                     </div>
                 </div>

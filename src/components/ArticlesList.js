@@ -16,8 +16,8 @@ class ArticlesList extends Component {
                       title={article.title}
                       uri={article.url}
                       author={article.author}
-                      content={article.content}
-                      date={article.date}
+                      content={article.content[0]}
+                      date={article.date.date}
                     >
                     </Article>);
           })}
