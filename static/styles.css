@@ -4,7 +4,7 @@ body {
 
 .row .logo {
     float: left;
-    padding-top: 2px;
+    margin-right: 5%;
     font-family: 'Josefin Slab', serif;
 }
 
@@ -29,8 +29,9 @@ body {
 }
 
 .article {
-    padding: 8px 0 22px;
+    padding: 0px 0px 22px;
     border-bottom: 1px solid #ececec;
+    margin-left:21.5%;
 }
 
 .article-block {
@@ -86,11 +87,11 @@ body {
 
 .article-preview {
     padding-bottom: 10px;
-    font-size: 1rem;
-    line-height: 20px;
-    max-width: 36.25rem;
+    font-size: 15px;
+    line-height: 1.5em;
     font-family: LyonText,Georgia,serif;
     text-overflow: ellipsis;
+    color: #404040;
 }
 
 .item-date-footer {

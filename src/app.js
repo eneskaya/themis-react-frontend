@@ -75,19 +75,15 @@ class App extends Component {
         <ArticlesList
           articles={this.state.currentArticles}>
         </ArticlesList>
-        <hr />
-        <ul className="pager-links">
+
+        <ul className="pager-links col-xs-offset-2">
           <li className="pager-prev">
-            <a
-              onClick={this.getPrevArticles.bind(this)}>
-              Prev
-            </a>
+            <button type="button" class="btn btn-default" onClick={this.getPrevArticles.bind(this)}>Prev</button>
+
           </li>
           <li className="pager-next">
-            <a
-              onClick={this.getNextArticles.bind(this)}>
-              Next
-            </a>
+            <button type="button" class="btn btn-default">Next</button>
+      
           </li>
         </ul>
       </div>
