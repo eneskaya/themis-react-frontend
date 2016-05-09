@@ -1,6 +1,5 @@
-.body .row {
-    padding-top: 2px;
-    padding-left: 3%;
+body {
+  margin-top: 10px;
 }
 
 .row .logo {
@@ -109,4 +108,12 @@
 .article-image image {
     height: 120px;
     width: 150px;
+}
+
+.pager-links {
+  list-style: none;
+}
+
+.pager-links li {
+  display: inline;
 }

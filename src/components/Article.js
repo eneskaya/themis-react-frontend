@@ -7,13 +7,13 @@ class Article extends Component {
       <div className="article col-md-8 col-md-offset-2">
                 <div className="col-md-8 article-block">
                     <div className="article-title">
-                        <a href="{this.props.uri}" title="Panderom Gabaled Hidaemd" className="title-link">
+                        <a href={this.props.uri} target="_blank" title="Panderom Gabaled Hidaemd" className="title-link">
                             {this.props.title}
                         </a>
                     </div>
                     <div className="title-meta">
                         <span className="host">
-                            <a href="{this.props.uri}" className="host-link">
+                            <a href={this.props.uri} target="_blank" className="host-link">
                                 {this.props.uri}
                             </a>
                         </span>
@@ -22,9 +22,7 @@ class Article extends Component {
                         </span>
 
                     </div>
-                    <div className="article-preview">
-                        {this.props.content}
-                    </div>
+
                     <div className="article-item-footer">
                         <span className="item-date-footer">
                             {this.props.date}

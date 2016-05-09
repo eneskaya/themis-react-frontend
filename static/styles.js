@@ -6,9 +6,8 @@ const {width, height, scale} = Dimensions.get("window"),
     vmax = Math.max(vw, vh);
 
 export default StyleSheet.create({
-    "body row": {
-        "paddingTop": 2,
-        "paddingLeft": "3%"
+    "body": {
+        "marginTop": 10
     },
     "row logo": {
         "float": "left",
@@ -101,5 +100,11 @@ export default StyleSheet.create({
     "article-image image": {
         "height": 120,
         "width": 150
+    },
+    "pager-links": {
+        "listStyle": "none"
+    },
+    "pager-links li": {
+        "display": "inline"
     }
 });

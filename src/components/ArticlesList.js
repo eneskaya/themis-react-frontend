@@ -14,7 +14,7 @@ class ArticlesList extends Component {
             return (<Article
                       key={article.id}
                       title={article.title}
-                      uri={article.uri}
+                      uri={article.url}
                       author={article.author}
                       content={article.content}
                       date={article.date}
@@ -23,6 +23,7 @@ class ArticlesList extends Component {
           })}
 
         </div>
+
     );
   }
 
