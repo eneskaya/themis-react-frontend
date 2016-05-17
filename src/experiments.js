@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ExperimentsList from './components/ExperimentsList';
 
 class Experiments extends Component {
 
@@ -12,30 +13,21 @@ class Experiments extends Component {
   }
 
   initial() {
-    fetch("http://textmine-work1.ful.informatik.haw-hamburg.de/api/experiments")
+    fetch("http://textmine-work1.ful.informatik.haw-hamburg.de/experiments")
       .then( (response) => {
         response.json().then( (data) => {
           this.setState({
             configurations: data
           });
+          console.log(data);
         });
       });
   }
 
   render() {
-
-    console.log(this.state.configurations);
-
     return (
       <div>
-        <ul>
-          { this.state.configurations.map( function(config) {
-            return (
-              <li key={config.id}>
-                {config.config.toString()}
-              </li>);
-          })}
-        </ul>
+        <ExperimentsList experiments={this.state.configurations}></ExperimentsList>
       </div>
     );
   }

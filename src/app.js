@@ -9,14 +9,14 @@ class App extends Component {
 
     this.state = {
       currentArticles: []
-    }
+    };
 
     this.initial();
   }
 
   initial() {
 
-    fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/api/articles?limit=30&page=1')
+    fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/articles?limit=30&page=1')
       .then( (response) => {
         response.json().then( (data) => {
           this.setState({

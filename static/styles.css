@@ -4,6 +4,15 @@ body {
 
 }
 
+.experiment-box .inner {
+    border: 1px solid #2e2e2e;
+    padding: 4px;
+}
+
+.experiment-box {
+    margin-bottom: 10px;
+}
+
 .row .logo {
     float: left;
     font-family: 'Josefin Slab', serif;
@@ -144,4 +153,12 @@ body {
 
 .container {
   width: 960px;
+}
+
+article h2 {
+    font-family: LyonText,Georgia,serif;
+}
+
+article p {
+    font-family: Georgia, serif;
 }

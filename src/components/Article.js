@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import { Link } from 'react-router';
 
 class Article extends Component {
 
@@ -14,9 +15,9 @@ class Article extends Component {
       <div className="article">
                 <div className="article-block">
                     <div className="article-title">
-                        <a href={this.props.uri} target="_blank" title={this.props.title} className="title-link">
+                        <Link to={"/article/" + this.props.id} className="title-link">
                             {this.props.title}
-                        </a>
+                        </Link>
                     </div>
                     <div className="title-meta">
                         <span className="host col-xs-12">
