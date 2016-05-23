@@ -21,6 +21,7 @@ class ExperimentsList extends Component {
                             key={experiment.id}
                             config={experiment.config}
                             data={experiment.data}
+                            evaluation={experiment.evaluation}
                             number={counter}
                         />
                     );

@@ -11,6 +11,8 @@ class Experiment extends Component {
             <div className="row">
                 <div className="col-md-3">
                     <dl>
+                        <dt>limit</dt>
+                        <dd>{this.props.config.limit}</dd>
                         <dt>init</dt>
                         <dd>{this.props.config.init}</dd>
                         <dt>precompute_distances</dt>
@@ -25,9 +27,10 @@ class Experiment extends Component {
                         <dd>{this.props.config.n_init}</dd>
                         <dt>n_jobs</dt>
                         <dd>{this.props.config.n_jobs}</dd>
-
                         <dt>verbose</dt>
                         <dd>{this.props.config.verbose}</dd>
+                        <dt>SilhouetteCoeffience</dt>
+                        <dd>{this.props.evaluation.SilhouetteCoefficient}</dd>
                     </dl>
                 </div>
                 <div className="col-md-9">
@@ -36,18 +39,8 @@ class Experiment extends Component {
                             <div>
                                 <b>Features/Cluster</b>
                                 <p>{ d.features.toString() }</p>
-                                <div>
-                                    <ul className="list-group">
-                                        { d.articles.map(function (article) {
-                                            return (
-                                                <li className="list-group-item">
-                                                    <b>{ article.title }</b><br/>
-                                                    <span>{ article.uri }</span>
-                                                </li>
-                                            );
-                                        }) }
-                                    </ul>
-                                </div>
+                                <p><strong>{ d.articles.length }</strong> articles in this cluster</p>
+                                <hr/>
                             </div>
                         );
                     }) }
