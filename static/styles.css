@@ -172,8 +172,7 @@ article p {
     margin-top: 20px;
 }
 
-@media (min-width: 992px) {
-  .modal-lg {
-      width: 90%;
-  }
+
+.modal-lg {
+    width: 90%;
 }

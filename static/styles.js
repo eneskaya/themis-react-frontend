@@ -165,5 +165,8 @@ export default StyleSheet.create({
     "experiments-table": {
         "border": "1px solid #2e2e2e",
         "marginTop": 20
+    },
+    "modal-lg": {
+        "width": "90%"
     }
 });
