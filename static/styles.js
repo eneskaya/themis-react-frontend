@@ -13,6 +13,16 @@ export default StyleSheet.create({
         "marginLeft": 0,
         "backgroundColor": "rgb(240, 240, 240)"
     },
+    "experiment-box inner": {
+        "border": "1px solid #2e2e2e",
+        "paddingTop": 4,
+        "paddingRight": 4,
+        "paddingBottom": 4,
+        "paddingLeft": 4
+    },
+    "experiment-box": {
+        "marginBottom": 10
+    },
     "row logo": {
         "float": "left",
         "fontFamily": "'Josefin Slab', serif",
@@ -142,5 +152,18 @@ export default StyleSheet.create({
     },
     "container": {
         "width": 960
+    },
+    "hr": {
+        "borderTop": "1px dotted #2e2e2e"
+    },
+    "article h2": {
+        "fontFamily": "LyonText,Georgia,serif"
+    },
+    "article p": {
+        "fontFamily": "Georgia, serif"
+    },
+    "experiments-table": {
+        "border": "1px solid #2e2e2e",
+        "marginTop": 20
     }
 });
