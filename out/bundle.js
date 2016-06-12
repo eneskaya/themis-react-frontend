@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "253352227daf0b456657"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "5fb7c15c2028c927cfa8"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -33768,7 +33768,8 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Article).call(this, props));
 
 	        _this.state = {
-	            showModal: false
+	            showModal: false,
+	            features: []
 	        };
 	        return _this;
 	    }
@@ -33785,12 +33786,23 @@
 	        }
 	    }, {
 	        key: 'open',
-	        value: function open() {
+	        value: function open(id) {
+	            var _this2 = this;
+
+	            fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/features?article=' + id).then(function (response) {
+	                response.json().then(function (data) {
+	                    _this2.setState({
+	                        features: data.features
+	                    });
+	                });
+	            });
+
 	            this.setState({ showModal: true });
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
+	            var _this3 = this;
 
 	            var tooltip = _react2.default.createElement(
 	                _reactBootstrap.Tooltip,
@@ -33812,7 +33824,9 @@
 	                            { placement: 'left', overlay: tooltip },
 	                            _react2.default.createElement(
 	                                'a',
-	                                { onClick: this.open.bind(this), className: 'title-link' },
+	                                { onClick: function onClick() {
+	                                        return _this3.open(_this3.props.id);
+	                                    }, className: 'title-link' },
 	                                this.props.title
 	                            )
 	                        )
@@ -33872,6 +33886,22 @@
 	                            this.getDate(),
 	                            ' - ',
 	                            this.props.author
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            null,
+	                            _react2.default.createElement(
+	                                'h5',
+	                                null,
+	                                'Tags'
+	                            ),
+	                            this.state.features.map(function (feature) {
+	                                return _react2.default.createElement(
+	                                    'span',
+	                                    { style: { float: 'left', margin: '2px', fontSize: '12px' }, className: 'label label-primary' },
+	                                    feature
+	                                );
+	                            })
 	                        )
 	                    ),
 	                    _react2.default.createElement(
