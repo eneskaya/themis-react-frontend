@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "b02c7f82e7bb95cc5e2d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "253352227daf0b456657"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -66915,6 +66915,7 @@
 	                        config: experiment.config,
 	                        data: experiment.data,
 	                        evaluation: experiment.evaluation,
+	                        preprocessing: experiment.preprocess,
 	                        number: counter
 	                    });
 	                })
@@ -67071,6 +67072,16 @@
 	                            "dd",
 	                            null,
 	                            this.props.evaluation.SilhouetteCoefficient
+	                        ),
+	                        _react2.default.createElement(
+	                            "dt",
+	                            null,
+	                            "Preprocessing"
+	                        ),
+	                        _react2.default.createElement(
+	                            "dd",
+	                            null,
+	                            this.props.preprocessing
 	                        )
 	                    )
 	                ),
@@ -67281,18 +67292,37 @@
 	        key: 'render',
 	        value: function render() {
 
-	            var columns = [{ name: 'limit' }, { name: 'max_iter' }, { name: 'n_clusters' }, { name: 'SilhouetteCoefficient' }, { name: 'createdAt' }];
+	            var columns = [{ name: 'id' }, { name: 'limit', title: 'limit' }, { name: 'n_features', title: 'n_features' }, { name: 'max_iter', title: 'max_iter' }, { name: 'n_clusters', title: 'n_clusters' }, { name: 'SilhouetteCoefficient' }, { name: 'createdAt' }, { name: 'preprocess' }];
 
-	            return _react2.default.createElement(_reactDatagrid2.default, {
-	                idProperty: 'id',
-	                dataSource: this.state.configurations,
-	                columns: columns
-	            });
+	            return _react2.default.createElement(
+	                'div',
+	                null,
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: this.loadData.bind(this) },
+	                    'Reload data'
+	                ),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'experiments-table' },
+	                    _react2.default.createElement(_reactDatagrid2.default, {
+	                        idProperty: 'id',
+	                        dataSource: this.state.configurations,
+	                        columns: columns
+	                    })
+	                )
+	            );
 	        }
 	    }, {
 	        key: 'loadData',
 	        value: function loadData() {
 	            var _this2 = this;
+
+	            this.setState({
+	                configurations: []
+	            });
+
+	            console.log('loadData');
 
 	            fetch("http://textmine-work1.ful.informatik.haw-hamburg.de/experiments").then(function (response) {
 	                response.json().then(function (data) {
@@ -67322,6 +67352,8 @@
 	                obj.verbose = config.config.verbose;
 	                obj.SilhouetteCoefficient = config.evaluation.SilhouetteCoefficient;
 	                obj.createdAt = config.createdAt;
+	                obj.preprocess = config.preprocess;
+	                obj.n_features = config.config.n_features;
 	                result.push(obj);
 	            });
 

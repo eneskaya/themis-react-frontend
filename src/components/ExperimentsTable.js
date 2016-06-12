@@ -16,23 +16,38 @@ class ExperimentsTable extends Component {
     render() {
 
         var columns = [
-            { name: 'limit' },
-            { name: 'max_iter' },
-            { name: 'n_clusters' },
+            { name: 'id' },
+            { name: 'limit', title: 'limit' },
+            { name: 'n_features', title: 'n_features' },
+            { name: 'max_iter', title: 'max_iter' },
+            { name: 'n_clusters', title: 'n_clusters' },
             { name: 'SilhouetteCoefficient' },
-            { name: 'createdAt' }
+            { name: 'createdAt' },
+            { name: 'preprocess' }
         ];
 
         return (
-            <DataGrid
-                idProperty='id'
-                dataSource={this.state.configurations}
-                columns={columns}
-            />
+            <div>
+                <button onClick={this.loadData.bind(this)}>Reload data</button>
+                <div className="experiments-table">
+                    <DataGrid
+                        idProperty='id'
+                        dataSource={this.state.configurations}
+                        columns={columns}
+                    />
+                </div>
+            </div>
         );
     }
 
     loadData() {
+
+        this.setState({
+            configurations: []
+        });
+
+        console.log('loadData');
+
         fetch("http://textmine-work1.ful.informatik.haw-hamburg.de/experiments")
         .then( (response) => {
             response.json().then( (data) => {
@@ -61,6 +76,8 @@ class ExperimentsTable extends Component {
             obj.verbose = config.config.verbose;
             obj.SilhouetteCoefficient = config.evaluation.SilhouetteCoefficient;
             obj.createdAt = config.createdAt;
+            obj.preprocess = config.preprocess;
+            obj.n_features = config.config.n_features;
             result.push(obj);
         } );
 

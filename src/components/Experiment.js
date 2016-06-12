@@ -31,6 +31,8 @@ class Experiment extends Component {
                         <dd>{this.props.config.verbose}</dd>
                         <dt>SilhouetteCoeffience</dt>
                         <dd>{this.props.evaluation.SilhouetteCoefficient}</dd>
+                        <dt>Preprocessing</dt>
+                        <dd>{this.props.preprocessing}</dd>
                     </dl>
                 </div>
                 <div className="col-md-9">

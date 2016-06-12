@@ -22,6 +22,7 @@ class ExperimentsList extends Component {
                             config={experiment.config}
                             data={experiment.data}
                             evaluation={experiment.evaluation}
+                            preprocessing={experiment.preprocess}
                             number={counter}
                         />
                     );

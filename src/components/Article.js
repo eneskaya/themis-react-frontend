@@ -9,7 +9,8 @@ class Article extends Component {
         super(props);
 
         this.state = {
-            showModal: false
+            showModal: false,
+            features: []
         };
     }
 
@@ -21,7 +22,16 @@ class Article extends Component {
         this.setState({showModal: false});
     }
 
-    open() {
+    open(id) {
+        fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/features?article='+id)
+          .then( (response) => {
+            response.json().then( (data) => {
+              this.setState({
+                features: data.features
+              });
+            });
+          });
+
         this.setState({showModal: true});
     }
 
@@ -37,7 +47,7 @@ class Article extends Component {
                 <div className="article-block">
                     <div className="article-title">
                         <OverlayTrigger placement="left" overlay={tooltip}>
-                            <a onClick={this.open.bind(this)} className="title-link">
+                            <a onClick={() => this.open(this.props.id)} className="title-link">
                                 {this.props.title}
                             </a>
                         </OverlayTrigger>
@@ -65,6 +75,14 @@ class Article extends Component {
                         <br/>
                         <small className="text-muted">By {this.props.author}</small>
                         <p>{this.getDate()} - {this.props.author}</p>
+                        <div>
+                          <h5>Tags</h5>
+                          { this.state.features.map( function(feature) {
+                            return (
+                                <span style={{float: 'left', margin: '2px', fontSize: '12px'}} className="label label-primary">{feature}</span>
+                            )
+                          }) }
+                        </div>
                     </Modal.Header>
                     <Modal.Body>
                         { this.props.content.map(function (paragraph) {
