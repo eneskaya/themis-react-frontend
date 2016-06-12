@@ -10,11 +10,17 @@ class Article extends Component {
 
         this.state = {
             showModal: false,
-            features: []
+            features: [],
+            related: []
         };
     }
 
     getDate(date) {
+
+        if (date) {
+          return moment(date.date).format('D. MMMM, YYYY');
+        }
+
         return moment(this.props.date).format('D. MMMM, YYYY');
     }
 
@@ -28,6 +34,15 @@ class Article extends Component {
             response.json().then( (data) => {
               this.setState({
                 features: data.features
+              });
+            });
+          });
+
+        fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/articles/related?article='+id)
+          .then( (response) => {
+            response.json().then( (data) => {
+              this.setState({
+                related: data
               });
             });
           });
@@ -75,21 +90,48 @@ class Article extends Component {
                         <br/>
                         <small className="text-muted">By {this.props.author}</small>
                         <p>{this.getDate()} - {this.props.author}</p>
-                        <div>
-                          <h5>Tags</h5>
-                          { this.state.features.map( function(feature) {
-                            return (
-                                <span style={{float: 'left', margin: '2px', fontSize: '12px'}} className="label label-primary">{feature}</span>
-                            )
-                          }) }
-                        </div>
                     </Modal.Header>
                     <Modal.Body>
-                        { this.props.content.map(function (paragraph) {
-                            return (
-                                <p>{paragraph}</p>
-                            );
-                        }) }
+                      <div className="row">
+                        <div className="article-content col-md-8" style={{ fontFamily: 'Georgia' }}>
+                          { this.props.content.map(function (paragraph) {
+                              return (
+                                  <p>{paragraph}</p>
+                              );
+                          }) }
+                        </div>
+                        <div className="related-articles col-md-4">
+                          <div>
+                            <h5>Tags</h5>
+                            { this.state.features.map( function(feature) {
+                              return (
+                                  <span style={{float: 'left', margin: '2px', fontSize: '12px'}} className="label label-primary">{feature}</span>
+                              )
+                            }) }
+                          </div>
+                          <div className="clearfix"></div>
+                          <br/>
+                          <h4 style={{marginTop: 0}} className="">
+                            Related Articles <span className="badge">{this.state.related.length}</span>
+                          </h4>
+                          <hr/>
+                          { this.state.related.map((article) => {
+
+                              return (
+                                <div>
+                                  <h4>{article.title}</h4>
+                                  <small>{this.getDate(article.date)}</small><br/>
+                                  <small>{article.url}</small><br/>
+                                  <small className="text-muted">
+                                    {article.content[0]}
+                                  </small>
+                                  <hr/>
+                                </div>
+                              );
+
+                          }) }
+                        </div>
+                      </div>
                     </Modal.Body>
                 </Modal>
             </div>

@@ -65,7 +65,7 @@
 /******/ 	}
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "5fb7c15c2028c927cfa8"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0d0e4c1854de6635654c"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -33769,7 +33769,8 @@
 
 	        _this.state = {
 	            showModal: false,
-	            features: []
+	            features: [],
+	            related: []
 	        };
 	        return _this;
 	    }
@@ -33777,6 +33778,11 @@
 	    _createClass(Article, [{
 	        key: 'getDate',
 	        value: function getDate(date) {
+
+	            if (date) {
+	                return (0, _moment2.default)(date.date).format('D. MMMM, YYYY');
+	            }
+
 	            return (0, _moment2.default)(this.props.date).format('D. MMMM, YYYY');
 	        }
 	    }, {
@@ -33793,6 +33799,14 @@
 	                response.json().then(function (data) {
 	                    _this2.setState({
 	                        features: data.features
+	                    });
+	                });
+	            });
+
+	            fetch('http://textmine-work1.ful.informatik.haw-hamburg.de/articles/related?article=' + id).then(function (response) {
+	                response.json().then(function (data) {
+	                    _this2.setState({
+	                        related: data
 	                    });
 	                });
 	            });
@@ -33886,34 +33900,89 @@
 	                            this.getDate(),
 	                            ' - ',
 	                            this.props.author
-	                        ),
-	                        _react2.default.createElement(
-	                            'div',
-	                            null,
-	                            _react2.default.createElement(
-	                                'h5',
-	                                null,
-	                                'Tags'
-	                            ),
-	                            this.state.features.map(function (feature) {
-	                                return _react2.default.createElement(
-	                                    'span',
-	                                    { style: { float: 'left', margin: '2px', fontSize: '12px' }, className: 'label label-primary' },
-	                                    feature
-	                                );
-	                            })
 	                        )
 	                    ),
 	                    _react2.default.createElement(
 	                        _reactBootstrap.Modal.Body,
 	                        null,
-	                        this.props.content.map(function (paragraph) {
-	                            return _react2.default.createElement(
-	                                'p',
-	                                null,
-	                                paragraph
-	                            );
-	                        })
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'row' },
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'article-content col-md-8', style: { fontFamily: 'Georgia' } },
+	                                this.props.content.map(function (paragraph) {
+	                                    return _react2.default.createElement(
+	                                        'p',
+	                                        null,
+	                                        paragraph
+	                                    );
+	                                })
+	                            ),
+	                            _react2.default.createElement(
+	                                'div',
+	                                { className: 'related-articles col-md-4' },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    null,
+	                                    _react2.default.createElement(
+	                                        'h5',
+	                                        null,
+	                                        'Tags'
+	                                    ),
+	                                    this.state.features.map(function (feature) {
+	                                        return _react2.default.createElement(
+	                                            'span',
+	                                            { style: { float: 'left', margin: '2px', fontSize: '12px' }, className: 'label label-primary' },
+	                                            feature
+	                                        );
+	                                    })
+	                                ),
+	                                _react2.default.createElement('div', { className: 'clearfix' }),
+	                                _react2.default.createElement('br', null),
+	                                _react2.default.createElement(
+	                                    'h4',
+	                                    { style: { marginTop: 0 }, className: '' },
+	                                    'Related Articles ',
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        { className: 'badge' },
+	                                        this.state.related.length
+	                                    )
+	                                ),
+	                                _react2.default.createElement('hr', null),
+	                                this.state.related.map(function (article) {
+
+	                                    return _react2.default.createElement(
+	                                        'div',
+	                                        null,
+	                                        _react2.default.createElement(
+	                                            'h4',
+	                                            null,
+	                                            article.title
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'small',
+	                                            null,
+	                                            _this3.getDate(article.date)
+	                                        ),
+	                                        _react2.default.createElement('br', null),
+	                                        _react2.default.createElement(
+	                                            'small',
+	                                            null,
+	                                            article.url
+	                                        ),
+	                                        _react2.default.createElement('br', null),
+	                                        _react2.default.createElement(
+	                                            'small',
+	                                            { className: 'text-muted' },
+	                                            article.content[0]
+	                                        ),
+	                                        _react2.default.createElement('hr', null)
+	                                    );
+	                                })
+	                            )
+	                        )
 	                    )
 	                )
 	            );
